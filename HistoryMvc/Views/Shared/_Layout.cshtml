@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/style/site")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("page_css", required: false)
+</head>
+<body>
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/libs")
+    @RenderSection("scripts", required: false)
+    @RenderSection("page_scripts", required: false)
+</body>
+</html>
