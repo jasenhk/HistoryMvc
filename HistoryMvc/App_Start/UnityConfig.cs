@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using Microsoft.Practices.Unity;
 using Unity.Mvc3;
+using HistoryMvc.Common;
 
 namespace HistoryMvc
 {
@@ -24,6 +25,7 @@ namespace HistoryMvc
             // e.g. container.RegisterType<ITestService, TestService>();
             
             //container.RegisterType<IUserProfileRepository, UserProfileRepository>();
+            container.RegisterType<IPlanetRepository, PlanetRepository>();
 
             return container;
         }

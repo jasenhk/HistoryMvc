@@ -1,0 +1,41 @@
+﻿@model HistoryMvc.Models.PageViewModel
+
+@{
+    ViewBag.Title = "_List";
+}
+
+<h2>@Model.ActionName</h2>
+
+<div class="row">
+    <span class="span6">
+        <span class="label label-info">@Model.TimeStamp.ToString()</span>
+        @if (Model.IsAjax)
+        {
+            <span class="label label-success">Is Ajax</span>
+        }
+        else
+        {
+            <span class="label label-warning">Non-Ajax</span>
+        }
+    </span>
+</div>
+
+<div class="row">
+    <div class="span8">
+        <table class="table table-bordered table-condensed table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Mass (AU)</th>
+            </tr>
+            @foreach (var planet in Model.Planets)
+            {
+                <tr>
+                    <td>@planet.Id</td>
+                    <td>@planet.Name</td>
+                    <td>@planet.MassAU</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

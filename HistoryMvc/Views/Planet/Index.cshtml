@@ -1,0 +1,34 @@
+﻿@model HistoryMvc.Models.PageViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<span class="label label-warning">Non-Ajax</span>
+@Html.Partial("_Index", Model)
+
+
+@section page_scripts {
+    <script type="text/javascript">
+        $(function () {
+            var url = rootUrl + "Planet/List";
+
+            console.log($("#planet-list").length);
+            console.log("load", url);
+
+            $("#planet-list").load(url, function () {
+                var title = "ajax";
+                History.pushState({ data: title }, title, url);
+            });
+        });
+    </script>
+}
+
+@section page_css {
+    <style type="text/css">
+        table {
+            margin: 10px;
+        }
+    </style>
+}

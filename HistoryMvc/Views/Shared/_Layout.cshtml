@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var isAjax = Request.IsAjaxRequest();
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -9,12 +13,38 @@
     @RenderSection("page_css", required: false)
 </head>
 <body>
-    @RenderBody()
+    <span class="label">_Layout</span>
+    <section id="layout">
+        <nav>
+            <ul class="nav nav-tabs">
+                <li>@Html.ActionLink("Home", "Index", "Home", new {}, new { @class="" })</li>
+                <li>@Html.ActionLink("Planets", "Index", "Planet", new {}, new { @class="" })</li>
+            </ul>
+        </nav>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryui")
-    @Scripts.Render("~/bundles/libs")
-    @RenderSection("scripts", required: false)
-    @RenderSection("page_scripts", required: false)
+        <header>
+            <span class="label label-info">@DateTime.Now.ToString()</span>
+            @if (Request.IsAjaxRequest())
+            {
+                <span class="label label-success">Ajax</span>
+            }
+            else
+            {
+                <span class="label label-warning">Non-Ajax</span>
+            }
+        </header>
+        
+        <span class="label">section_body</span>
+        <section id="section-body">
+            @RenderBody()
+        </section>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Scripts.Render("~/bundles/libs")
+        @Scripts.Render("~/bundles/js")
+        @RenderSection("scripts", required: false)
+        @RenderSection("page_scripts", required: false)
+    </section>
 </body>
 </html>

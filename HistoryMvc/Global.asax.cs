@@ -25,7 +25,7 @@ namespace HistoryMvc
             AutoMapConfig.RegisterMappings();
             UnityConfig.Initialise(new UnityConfigParameters
             {
-                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["AntaresContext"].ConnectionString,
+                ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString,
                 Filters = GlobalFilters.Filters
             });
         }

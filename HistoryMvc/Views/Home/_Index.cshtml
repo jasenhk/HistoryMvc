@@ -1,0 +1,21 @@
+﻿@model HistoryMvc.Models.PageViewModel
+
+@{
+    ViewBag.Title = "_Index";
+}
+
+<h2>@Model.ActionName</h2>
+
+<div class="row">
+    <span class="span6">
+        <span class="label label-info">@Model.TimeStamp.ToString()</span>
+        @if (Model.IsAjax)
+        {
+            <span class="label label-success">Is Ajax</span>
+        }
+        else
+        {
+            <span class="label label-warning">Non-Ajax</span>
+        }
+    </span>
+</div>

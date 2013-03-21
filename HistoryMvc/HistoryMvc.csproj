@@ -157,9 +157,16 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Common\PlanetRepository.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PlanetController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Moon.cs" />
+    <Compile Include="Models\PageViewModel.cs" />
+    <Compile Include="Models\Planet.cs" />
+    <Compile Include="Models\PlanetSearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +176,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\js\Site.js" />
     <Content Include="Content\less\Site.css">
       <DependentUpon>Site.less</DependentUpon>
     </Content>
@@ -285,11 +293,15 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Planet\Index.cshtml" />
+    <Content Include="Views\Planet\_Index.cshtml" />
+    <Content Include="Views\Home\_Index.cshtml" />
+    <Content Include="Views\Planet\List.cshtml" />
+    <Content Include="Views\Planet\_List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

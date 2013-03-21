@@ -22,8 +22,14 @@ namespace HistoryMvc
                         "~/Scripts/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/libs")
-                .Include("~/Scripts/bootstrap*.js")
-                .Include("~/Scripts/history/*.js"));
+                .Include("~/Scripts/bootstrap.js")
+                .Include("~/Scripts/history.js/history.js")
+                .Include("~/Scripts/history.js/history.html4.js")
+                .Include("~/Scripts/history.js/history.adapter.jquery.js")
+                );
+
+            bundles.Add(new ScriptBundle("~/bundles/js")
+                .Include("~/Content/js/*.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
@@ -46,7 +52,7 @@ namespace HistoryMvc
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
 
-            var lessBundle = new Bundle("~/bundles/style/site")
+            var lessBundle = new Bundle("~/Content/style/site")
                 .Include("~/Content/less/_core.less")
                 .Include("~/Content/less/Site.less")
                 .Include("~/Content/*.css");
