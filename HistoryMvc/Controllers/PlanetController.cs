@@ -21,10 +21,11 @@ namespace HistoryMvc.Controllers
         // GET: /Planet/
         public ActionResult Index()
         {
-            var model = new PageViewModel
+            var model = new PlanetPageViewModel
             {
                 IsAjax = false,
-                ActionName = "Planet/Index"
+                ActionName = "Planet/Index",
+                SearchForm = new PlanetSearch()
             };
 
             if (Request.IsAjaxRequest())
@@ -53,11 +54,12 @@ namespace HistoryMvc.Controllers
         {
             var planets = planetRepository.GetAll();
 
-            var model = new PageViewModel
+            var model = new PlanetPageViewModel
             {
                 IsAjax = false,
                 ActionName = "Planet/List",
-                Planets = planets
+                Planets = planets,
+                SearchForm = new PlanetSearch()
             };
 
             if (Request.IsAjaxRequest())

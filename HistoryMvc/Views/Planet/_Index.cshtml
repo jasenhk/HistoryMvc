@@ -1,4 +1,4 @@
-﻿@model HistoryMvc.Models.PageViewModel
+﻿@model HistoryMvc.Models.PlanetPageViewModel
 
 @{
     ViewBag.Title = "_Index";
@@ -19,6 +19,10 @@
         }
     </span>
 </div>
+
+<section id="section-search-form">
+    @Html.Partial("_SearchForm", Model.SearchForm)
+</section>
 
 <section id="planet-list">
     <!-- Non-javascript users will see this link -->
