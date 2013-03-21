@@ -37,9 +37,16 @@ namespace HistoryMvc.Controllers
             return View(model);
         }
 
-        public ActionResult Details(int planetId)
+        public ActionResult Details(int id)
         {
-            return View();
+            var planet = planetRepository.GetAll().Where(p => p.Id == id).FirstOrDefault();
+
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_Details", planet);
+            }
+
+            return View(planet);
         }
 
         public ActionResult List()

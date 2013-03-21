@@ -299,6 +299,8 @@
     <Content Include="Views\Home\_Index.cshtml" />
     <Content Include="Views\Planet\List.cshtml" />
     <Content Include="Views\Planet\_List.cshtml" />
+    <Content Include="Views\Planet\Details.cshtml" />
+    <Content Include="Views\Planet\_Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -32,7 +32,7 @@
             {
                 <tr>
                     <td>@planet.Id</td>
-                    <td>@planet.Name</td>
+                    <td>@Html.ActionLink(planet.Name, "Details", "Planet", new { id = planet.Id }, new { @class = "" })</td>
                     <td>@planet.MassAU</td>
                 </tr>
             }

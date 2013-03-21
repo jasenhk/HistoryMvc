@@ -1,0 +1,9 @@
+﻿@model HistoryMvc.Models.Planet
+
+@{
+    ViewBag.Title = Model.Name + "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<span class="label label-warning">Non-Ajax</span>
+@Html.Partial("_Details", Model)
