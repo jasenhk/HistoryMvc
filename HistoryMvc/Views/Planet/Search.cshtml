@@ -1,0 +1,9 @@
+﻿@model HistoryMvc.Models.PlanetPageViewModel
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<span class="label label-warning">Non-Ajax</span>
+@Html.Partial("_List", Model)

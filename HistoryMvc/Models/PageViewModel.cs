@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 namespace HistoryMvc.Models
 {
-    public interface IPageViewModel
+    public interface IPageViewModel : IAjaxifiedModel
     {
-        bool IsAjax { get; set; }
         string ActionName { get; set; }
         DateTime TimeStamp { get; set; }
     }

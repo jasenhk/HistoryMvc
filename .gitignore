@@ -6,6 +6,10 @@
 *.user
 *.sln.docstates
 
+# Webmaster verification files
+HistoryMvc/google846c27bb1929a877.html
+HistoryMvc/BingSiteAuth.xml
+
 # Build results
 
 [Dd]ebug/

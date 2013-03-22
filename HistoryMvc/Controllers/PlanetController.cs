@@ -23,15 +23,13 @@ namespace HistoryMvc.Controllers
         {
             var model = new PlanetPageViewModel
             {
-                IsAjax = false,
+                IsAjax = Request.IsAjaxRequest(),
                 ActionName = "Planet/Index",
                 SearchForm = new PlanetSearch()
             };
 
             if (Request.IsAjaxRequest())
-            {
-                model.IsAjax = true;
-                
+            {                
                 return PartialView("_Index", model);
             }
 
@@ -56,7 +54,7 @@ namespace HistoryMvc.Controllers
 
             var model = new PlanetPageViewModel
             {
-                IsAjax = false,
+                IsAjax = Request.IsAjaxRequest(),
                 ActionName = "Planet/List",
                 Planets = planets,
                 SearchForm = new PlanetSearch()
@@ -64,13 +62,13 @@ namespace HistoryMvc.Controllers
 
             if (Request.IsAjaxRequest())
             {
-                model.IsAjax = true;
                 return PartialView("_List", model);
             }
 
             return View(model);
         }
 
+        [HttpGet]
         public ActionResult Search(PlanetSearch search)
         {
             Planet planet = null;
@@ -81,12 +79,53 @@ namespace HistoryMvc.Controllers
             }
             else
             {
-                var name = search.Name.Trim().ToUpper();
+                var name = (search.Name ?? "").Trim().ToUpper();
                 planet = planetRepository.GetAll().Where(p => p.Name.ToUpper() == name).FirstOrDefault();
             }
+            var searchResults = new List<Planet>() { };
 
-            return View(planet);
+            if (planet != null)
+            {
+                searchResults.Add(planet);
+            }
+
+            var model = new PlanetPageViewModel
+            {
+                IsAjax = Request.IsAjaxRequest(),
+                ActionName = "Planet/Search",
+                Planets = searchResults,
+                SearchForm = search
+            };
+
+            var result = new AjaxifiedResult(model: model, fullView: "Search", partialView: "_List");
+            // return AjaxifiedResult(model: model, fullView: "Search", partialView: "_List");
+
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_List", model);
+            }
+            return View(model);
         }
 
+    }
+
+    public class AjaxifiedResult : ActionResult
+    {
+        public AjaxifiedResult(IAjaxifiedModel model, string fullView, string partialView)
+        {
+        }
+
+        public override void ExecuteResult(ControllerContext context)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class AjaxifiedJsonResult : JsonResult
+    {
+        public override void ExecuteResult(ControllerContext context)
+        {
+            base.ExecuteResult(context);
+        }
     }
 }

@@ -7,16 +7,16 @@
 <br />
 <div class="row">
     <div class="span4">
-        @using (Html.BeginForm("", "", FormMethod.Get, new { id="search-form", @class="form-horizontal" }))
+        @using (Html.BeginForm("Search", "Planet", FormMethod.Get, new { id="search-form", title="Planet Search", @class="form-horizontal" }))
         {
             <div class="control-group">
                 @Html.LabelFor(m => m.Id, new { @class="control-label" })
-                <div class="controls">@Html.TextBoxFor(m => m.Id)</div>            
+                <div class="controls">@Html.TextBoxFor(m => m.Id, new { id = "field-id" })</div>            
             </div>
         
             <div class="control-group">
                 @Html.LabelFor(m => m.Name, new { @class="control-label" })
-                <div class="controls">@Html.TextBoxFor(m => m.Name)</div>
+                <div class="controls">@Html.TextBoxFor(m => m.Name, new { id = "field-name" })</div>
             </div>
             <div class="control-group">
                 <div class="controls">
